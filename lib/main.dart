@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_furniture/core/presentation/routes.dart';
+import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: AppRoutes.welcome,
+      initialRoute: AppRoutes.onboarding,
       onGenerateRoute: AppRoutes.generateRoute,
     );
   }

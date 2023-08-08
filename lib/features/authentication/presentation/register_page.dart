@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_furniture/core/presentation/routes.dart';
+import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});

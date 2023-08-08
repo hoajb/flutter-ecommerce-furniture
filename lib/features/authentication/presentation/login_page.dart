@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_furniture/core/presentation/routes.dart';
+import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
