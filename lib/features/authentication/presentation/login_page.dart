@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
+import 'package:flutter_ecommerce_furniture/core/wigets/action_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -20,11 +21,12 @@ class LoginPage extends StatelessWidget {
               obscureText: true,
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
+            ActionButton(
+              matchParentWidth: true,
               onPressed: () {
                 Navigator.pushNamed(context, AppRoutes.home);
               },
-              child: const Text('Login'),
+              text: 'Login',
             ),
             TextButton(
               onPressed: () {

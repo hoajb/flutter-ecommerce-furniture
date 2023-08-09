@@ -3,39 +3,39 @@ import 'package:flutter/material.dart';
 class ActionButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final Color backgroundColor;
-  final Color textColor;
+  final Color? backgroundColor;
+  final Color? textColor;
   final bool matchParentWidth;
 
   const ActionButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.backgroundColor = Colors.black,
-    this.textColor = Colors.white,
+    this.backgroundColor,
+    this.textColor,
     this.matchParentWidth = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    bool darkModeEnabled = Theme.of(context).brightness == Brightness.dark;
+    final backgroundC =
+        backgroundColor ?? (darkModeEnabled ? Colors.white : Colors.black);
+
+    final textC = textColor ?? (darkModeEnabled ? Colors.black : Colors.white);
     return SizedBox(
       width: matchParentWidth ? double.infinity : null,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          primary: backgroundColor,
+          backgroundColor: backgroundC,
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(50),
-              bottomRight: Radius.circular(50),
-              topLeft: Radius.circular(50),
-              bottomLeft: Radius.circular(50),
-            ),
+            borderRadius: BorderRadius.all(Radius.circular(50)),
           ),
         ),
         child: Text(
           text,
-          style: TextStyle(color: textColor),
+          style: TextStyle(color: textC, fontWeight: FontWeight.bold),
         ),
       ),
     );

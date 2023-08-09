@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
 
-ThemeData theme() {
+ThemeData getAppTheme(BuildContext context, bool isDarkTheme) {
   return ThemeData(
-      scaffoldBackgroundColor: Colors.white,
-      fontFamily: 'Muli',
-      appBarTheme: appBarTheme());
-}
-
-AppBarTheme appBarTheme() {
-  return const AppBarTheme(
-    color: Colors.white,
-    elevation: 0,
-    centerTitle: true,
-    iconTheme: IconThemeData(color: Color(0XFF8B8B8B)),
-    titleTextStyle: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
+    scaffoldBackgroundColor: isDarkTheme ? Colors.black : Colors.white,
+    textTheme: Theme.of(context)
+        .textTheme
+        .copyWith(
+          titleSmall:
+              Theme.of(context).textTheme.titleSmall?.copyWith(fontSize: 11),
+        )
+        .apply(
+          bodyColor: isDarkTheme ? Colors.white : Colors.black,
+          displayColor: Colors.grey,
+        ),
+    switchTheme: SwitchThemeData(
+      thumbColor: MaterialStateProperty.all(
+          isDarkTheme ? Colors.orange : Colors.purple),
+    ),
+    listTileTheme: ListTileThemeData(
+        iconColor: isDarkTheme ? Colors.orange : Colors.purple),
+    appBarTheme: AppBarTheme(
+        backgroundColor: isDarkTheme ? Colors.black : Colors.white,
+        iconTheme:
+            IconThemeData(color: isDarkTheme ? Colors.white : Colors.black54)),
   );
 }

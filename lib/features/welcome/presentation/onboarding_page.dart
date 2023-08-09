@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
 import 'package:flutter_ecommerce_furniture/core/wigets/action_button.dart';
 
+import '../../../config/theme/theme_toggle_button.dart';
+
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
 
@@ -74,8 +76,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: ActionButton(
               // Updated to use ActionButton
-              text:
-                  _currentPage == _imagePaths.length - 1 ? "Get Started" : "Next",
+              text: _currentPage == _imagePaths.length - 1
+                  ? "Get Started"
+                  : "Next",
               matchParentWidth: true,
               onPressed: () {
                 if (_currentPage < _imagePaths.length - 1) {
@@ -105,13 +108,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _indicator(bool isActive) {
+    bool darkModeEnabled = Theme.of(context).brightness == Brightness.dark;
+    final activeColor = darkModeEnabled ? Colors.white : Colors.black;
     return AnimatedContainer(
       duration: const Duration(milliseconds: 150),
       margin: const EdgeInsets.symmetric(horizontal: 4.0),
       height: 8.0,
       width: isActive ? 24.0 : 8.0,
       decoration: BoxDecoration(
-        color: isActive ? Colors.blueAccent : Colors.grey,
+        color: isActive ? activeColor : Colors.grey,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
     );
