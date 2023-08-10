@@ -23,11 +23,11 @@ class AppRoutes {
       case home:
         return MaterialPageRoute(builder: (_) => const HomePage());
       case login:
-        return MaterialPageRoute(builder: (_) => LoginPage());
+        return MaterialPageRoute(builder: (_) => const LoginPage());
       case register:
-        return MaterialPageRoute(builder: (_) => const RegisterPage());
+        return MaterialPageRoute(builder: (_) => RegisterPage());
       case forgotPassword:
-        return MaterialPageRoute(builder: (_) => const ForgotPasswordPage());
+        return MaterialPageRoute(builder: (_) => ForgotPasswordPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

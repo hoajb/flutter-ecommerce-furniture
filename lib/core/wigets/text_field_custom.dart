@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_furniture/core/ext/buildcontext_ext.dart';
 
 import '../../config/theme/styles.dart';
 
 const _borderRadius = 12.0;
 
-_boxDecoration(FocusNode focusNode) {
+_boxDecoration(BuildContext context, FocusNode focusNode) {
   return BoxDecoration(
-    color: Styles.textFieldBackground,
+    color: context.isDarkModeEnabled
+        ? Styles.textFieldBackgroundDark
+        : Styles.textFieldBackgroundLight,
     border: Border.all(
       color: focusNode.hasFocus ? Colors.grey : Colors.transparent,
     ),
@@ -39,7 +42,7 @@ class TextFieldWithIcon extends StatelessWidget {
     return Container(
       height: 50,
       padding: _padding,
-      decoration: _boxDecoration(_focusNode),
+      decoration: _boxDecoration(context, _focusNode),
       child: Row(
         children: [
           Icon(icon),
@@ -90,7 +93,7 @@ class _TextFieldWithIconObscureTextState
     return Container(
       height: 50,
       padding: _padding,
-      decoration: _boxDecoration(_focusNode),
+      decoration: _boxDecoration(context, _focusNode),
       child: Row(
         children: [
           Icon(widget.icon),

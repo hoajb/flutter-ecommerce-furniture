@@ -27,7 +27,8 @@ abstract class Styles {
   static const Color iconGold = Color(0xffdba800);
   static const Color bottomBarSelectedColor = Color(0xff5e4989);
 
-  static const Color textFieldBackground = Color(0xfffafafa);
+  static const Color textFieldBackgroundLight = Color(0xfffafafa);
+  static const Color textFieldBackgroundDark = Color(0xff202229);
 
   //Strings
   static const TextStyle defaultTextStyle = TextStyle(
