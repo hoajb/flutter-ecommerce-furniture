@@ -80,6 +80,7 @@ abstract class Styles {
       //  fontFamily: Devfest.google_sans_family,
       primarySwatch: Colors.grey,
       primaryColor: isDarkTheme ? Colors.black : Colors.white,
+      fontFamily: 'Urbanist',
       scaffoldBackgroundColor: isDarkTheme ? Colors.black : Colors.white,
       //
       // backgroundColor: isDarkTheme ? Colors.black : Color(0xffF1F5FB),

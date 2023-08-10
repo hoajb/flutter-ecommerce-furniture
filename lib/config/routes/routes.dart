@@ -21,7 +21,7 @@ class AppRoutes {
       case welcome:
         return MaterialPageRoute(builder: (_) => const WelcomePage());
       case home:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(builder: (_) => HomePage());
       case login:
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case register:
