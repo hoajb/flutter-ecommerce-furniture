@@ -27,7 +27,8 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Furniture',
           // theme: getAppTheme(context, themeObject.isDarkMode),
           theme: Styles.themeData(themeObject.isDarkMode, context),
-          initialRoute: AppRoutes.onboarding,
+          // initialRoute: AppRoutes.onboarding, //TODO
+          initialRoute: AppRoutes.login,
           onGenerateRoute: AppRoutes.generateRoute,
         ),
       ),

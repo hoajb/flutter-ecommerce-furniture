@@ -23,7 +23,7 @@ class AppRoutes {
       case home:
         return MaterialPageRoute(builder: (_) => const HomePage());
       case login:
-        return MaterialPageRoute(builder: (_) => const LoginPage());
+        return MaterialPageRoute(builder: (_) => LoginPage());
       case register:
         return MaterialPageRoute(builder: (_) => const RegisterPage());
       case forgotPassword:

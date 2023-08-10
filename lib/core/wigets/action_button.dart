@@ -25,6 +25,7 @@ class ActionButton extends StatelessWidget {
     final textC = textColor ?? (darkModeEnabled ? Colors.black : Colors.white);
     return SizedBox(
       width: matchParentWidth ? double.infinity : null,
+      height: 50,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
+import 'package:flutter_ecommerce_furniture/core/wigets/action_button.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -20,11 +21,12 @@ class RegisterPage extends StatelessWidget {
               obscureText: true,
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
+            ActionButton(
               onPressed: () {
                 Navigator.pushNamed(context, AppRoutes.home);
               },
-              child: const Text('Register'),
+              matchParentWidth: true,
+              text: 'Register',
             ),
           ],
         ),
