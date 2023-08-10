@@ -1,8 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
+import 'package:flutter_ecommerce_furniture/core/ext/buildcontext_ext.dart';
 import 'package:flutter_ecommerce_furniture/core/wigets/action_button.dart';
 import 'package:flutter_ecommerce_furniture/core/wigets/text_field_custom.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../widgets/auth_button.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
@@ -56,8 +60,71 @@ class RegisterPage extends StatelessWidget {
                 Navigator.pushNamed(context, AppRoutes.home);
               },
               matchParentWidth: true,
-              text: 'Register',
-            )
+              text: 'Sign Up',
+            ),
+            const SizedBox(height: 30),
+            const Text('--- or continue with ---'),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AuthButton(
+                    child: Icon(
+                      FontAwesomeIcons.facebook,
+                      color: context.isDarkModeEnabled
+                          ? Colors.white
+                          : Colors.black,
+                    ),
+                    onPressed: () {}),
+                const SizedBox(
+                  width: 10,
+                ),
+                AuthButton(
+                    child: Icon(
+                      FontAwesomeIcons.google,
+                      color: context.isDarkModeEnabled
+                          ? Colors.white
+                          : Colors.black,
+                    ),
+                    onPressed: () {}),
+                const SizedBox(
+                  width: 10,
+                ),
+                AuthButton(
+                    child: Icon(
+                      FontAwesomeIcons.apple,
+                      color: context.isDarkModeEnabled
+                          ? Colors.white
+                          : Colors.black,
+                    ),
+                    onPressed: () {}),
+              ],
+            ),
+            Expanded(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                const Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Text('Already have an account?')),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, AppRoutes.login);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(
+                            color: context.isDarkModeEnabled
+                                ? Colors.white
+                                : Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ))
+              ],
+            ))
           ],
         ),
       ),

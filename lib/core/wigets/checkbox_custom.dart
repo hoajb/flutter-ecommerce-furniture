@@ -40,7 +40,7 @@ class _CheckboxAppState extends State<CheckboxApp> {
         decoration: BoxDecoration(
           color: _isChecked ? Colors.black : Colors.white,
           border: Border.all(
-            color: _isChecked ? Colors.transparent : Colors.black,
+            color: _isChecked ? Colors.white : Colors.black,
           ),
           borderRadius: BorderRadius.circular(6.0),
         ),

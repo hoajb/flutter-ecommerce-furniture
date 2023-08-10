@@ -2,7 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
 import 'package:flutter_ecommerce_furniture/config/theme/styles.dart';
+import 'package:flutter_ecommerce_furniture/core/ext/buildcontext_ext.dart';
 import 'package:flutter_ecommerce_furniture/core/wigets/action_button.dart';
+import 'package:flutter_ecommerce_furniture/features/authentication/widgets/auth_button.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../core/wigets/checkbox_custom.dart';
 import '../../../core/wigets/text_field_custom.dart';
@@ -86,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 Navigator.pushNamed(context, AppRoutes.home);
               },
-              text: 'Login',
+              text: 'Sign In',
             ),
             const SizedBox(height: 30),
             TextButton(
@@ -98,6 +101,70 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(color: Colors.black),
               ),
             ),
+            const SizedBox(height: 30),
+            const Text('--- or continue with ---'),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AuthButton(
+                    child: Icon(
+                      FontAwesomeIcons.facebook,
+                      color: context.isDarkModeEnabled
+                          ? Colors.white
+                          : Colors.black,
+                    ),
+                    onPressed: () {}),
+                const SizedBox(
+                  width: 10,
+                ),
+                AuthButton(
+                    child: Icon(
+                      FontAwesomeIcons.google,
+                      color: context.isDarkModeEnabled
+                          ? Colors.white
+                          : Colors.black,
+                    ),
+                    onPressed: () {}),
+                const SizedBox(
+                  width: 10,
+                ),
+                AuthButton(
+                    child: Icon(
+                      FontAwesomeIcons.apple,
+                      color: context.isDarkModeEnabled
+                          ? Colors.white
+                          : Colors.black,
+                    ),
+                    onPressed: () {}),
+              ],
+            ),
+            Expanded(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                const Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Text('Don\'t have an account?')),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(
+                          context, AppRoutes.register);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                            color: context.isDarkModeEnabled
+                                ? Colors.white
+                                : Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ))
+              ],
+            ))
           ],
         ),
       ),
