@@ -57,7 +57,7 @@ class RegisterPage extends StatelessWidget {
             const SizedBox(height: 20),
             ActionButton(
               onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.home);
+                Navigator.pushNamed(context, AppRoutes.main);
               },
               matchParentWidth: true,
               text: 'Sign Up',

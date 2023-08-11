@@ -5,14 +5,15 @@ import 'package:flutter/material.dart';
 abstract class Styles {
   //colors
   static const Color whiteColor = Color(0xffffffff);
-  static const Color blackColor = Color(0xff0000000);
+  static const Color blackColor = Color(0xff000000);
+  static const Color blackThemeColor = Color(0xff17191d);
+  static const Color whiteThemeColor = Color(0xffffffff);
+
   static const Color orangeColor = Colors.orange;
   static const Color redColor = Colors.red;
   static const Color darkRedColor = Color(0xFFB71C1C);
 
   static const Color purpleColor = Color(0xff5E498A);
-
-  static const Color darkThemeColor = Color(0xff33333E);
 
   static const Color grayColor = Color(0xff797979);
 
@@ -29,6 +30,13 @@ abstract class Styles {
 
   static const Color textFieldBackgroundLight = Color(0xfffafafa);
   static const Color textFieldBackgroundDark = Color(0xff202229);
+
+  static const Color iconActivatedLight = Color(0xff1f1f1f);
+  static const Color iconActivatedDark = Color(0xffffffff);
+  static const Color iconDeactivatedLight = Color(0xffadadad);
+  static const Color iconDeactivatedDark = Color(0xff67696d);
+  static const Color bottomBarBackgroundLight = Color(0xffffffff);
+  static const Color bottomBarBackgroundDark = Color(0xff282423);
 
   //Strings
   static const TextStyle defaultTextStyle = TextStyle(
@@ -82,9 +90,9 @@ abstract class Styles {
       primaryColor: isDarkTheme ? Colors.black : Colors.white,
       fontFamily: 'Urbanist',
       scaffoldBackgroundColor: isDarkTheme ? Colors.black : Colors.white,
-      //
+
       // backgroundColor: isDarkTheme ? Colors.black : Color(0xffF1F5FB),
-      //
+
       // indicatorColor: isDarkTheme ? Color(0xff0E1D36) : Color(0xffCBDCF8),
       // // buttonColor: isDarkTheme ? Color(0xff3B3B3B) : Color(0xffF1F5FB),
       //
@@ -102,7 +110,7 @@ abstract class Styles {
       // buttonTheme: Theme.of(context).buttonTheme.copyWith(
       //     colorScheme: isDarkTheme ? ColorScheme.dark() : ColorScheme.light()),
       appBarTheme: AppBarTheme(
-          backgroundColor: isDarkTheme ? Colors.black : Colors.white,
+          backgroundColor: isDarkTheme ? Colors.black54 : Colors.white,
           elevation: 0.0,
           iconTheme: IconThemeData(
               color: isDarkTheme ? Colors.white : Colors.black54)),

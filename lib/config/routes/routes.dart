@@ -3,13 +3,14 @@ import 'package:flutter_ecommerce_furniture/features/authentication/presentation
 import 'package:flutter_ecommerce_furniture/features/authentication/presentation/login_page.dart';
 import 'package:flutter_ecommerce_furniture/features/authentication/presentation/register_page.dart';
 import 'package:flutter_ecommerce_furniture/features/home/presentation/home_page.dart';
+import 'package:flutter_ecommerce_furniture/features/main/presentation/pages/main_page.dart';
 import 'package:flutter_ecommerce_furniture/features/welcome/presentation/onboarding_page.dart';
 import 'package:flutter_ecommerce_furniture/features/welcome/presentation/welcome_page.dart';
 
 class AppRoutes {
   static const String welcome = '/';
   static const String onboarding = '/onboarding';
-  static const String home = '/home';
+  static const String main = '/main';
   static const String login = '/login';
   static const String register = '/register';
   static const String forgotPassword = '/forgot_password';
@@ -20,8 +21,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const OnboardingPage());
       case welcome:
         return MaterialPageRoute(builder: (_) => const WelcomePage());
-      case home:
-        return MaterialPageRoute(builder: (_) => HomePage());
+      case main:
+        return MaterialPageRoute(builder: (_) => const MainPage());
       case login:
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case register:
