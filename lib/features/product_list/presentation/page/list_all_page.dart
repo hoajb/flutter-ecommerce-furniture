@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
 import 'package:flutter_ecommerce_furniture/core/ext/buildcontext_ext.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -6,8 +7,10 @@ import '../../../../config/theme/styles.dart';
 
 class ListAllPage extends StatelessWidget {
   final List<Map<String, dynamic>> items;
+  final ValueChanged<Map<String, dynamic>>? onItemSelected;
 
-  const ListAllPage({Key? key, required this.items}) : super(key: key);
+  const ListAllPage({Key? key, required this.items, this.onItemSelected})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +26,15 @@ class ListAllPage extends StatelessWidget {
       itemCount: items.length,
       // Number of items in the grid
       itemBuilder: (context, index) {
-        return ProductItem(
-          item: items[index],
+        return GestureDetector(
+          onTap: () {
+            onItemSelected?.call(items[index]);
+            Navigator.pushNamed(context, AppRoutes.productDetails,
+                arguments: items[index]);
+          },
+          child: ProductItem(
+            item: items[index],
+          ),
         );
       },
     );
@@ -76,7 +86,7 @@ class _ProductItemState extends State<ProductItem> {
                           child: IconButton(
                             icon: FaIcon(
                               _isFavorited
-                                  ? FontAwesomeIcons.heartCircleCheck
+                                  ? FontAwesomeIcons.solidHeart
                                   : FontAwesomeIcons.heart,
                               size: 18,
                               color: Styles.whiteColor,
@@ -127,7 +137,7 @@ class _ProductItemState extends State<ProductItem> {
           ],
         ),
         Text(
-          widget.item['price'],
+          '\$${widget.item['price']}',
           style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
       ],
