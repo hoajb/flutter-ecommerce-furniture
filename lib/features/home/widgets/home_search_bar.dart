@@ -7,8 +7,13 @@ import '../../../config/theme/styles.dart';
 class HomeSearchBar extends StatelessWidget {
   final TextEditingController? controller;
   final ValueChanged<String>? onChanged;
+  final VoidCallback onFilterPressed;
 
-  const HomeSearchBar({super.key, required this.controller, this.onChanged});
+  const HomeSearchBar(
+      {super.key,
+      required this.controller,
+      this.onChanged,
+      required this.onFilterPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +47,13 @@ class HomeSearchBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          FaIcon(
-            FontAwesomeIcons.sliders,
-            size: 18,
-            color: isDark ? Colors.white : Colors.grey,
+          GestureDetector(
+            onTap: onFilterPressed,
+            child: FaIcon(
+              FontAwesomeIcons.sliders,
+              size: 18,
+              color: isDark ? Colors.white : Colors.grey,
+            ),
           ),
         ],
       ),

@@ -2,21 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/core/ext/buildcontext_ext.dart';
 
 import '../../../config/theme/styles.dart';
-
-List<String> _listHomeFilterSelection = [
-  'All',
-  'Sofa',
-  'Chair',
-  'Table',
-  'Kitchen',
-  'Lamp',
-  'Cupboard',
-  'Vase',
-  'Others'
-];
+import '../data/mock_home_filters.dart';
 
 class HomeFilterSelection extends StatefulWidget {
-  const HomeFilterSelection({super.key});
+  final ValueChanged<List<String>>? onValueChanged;
+  final List<String> listFilter;
+
+  const HomeFilterSelection(
+      {super.key, this.onValueChanged, required this.listFilter});
 
   @override
   State<HomeFilterSelection> createState() => _HomeFilterSelectionState();
@@ -32,6 +25,8 @@ class _HomeFilterSelectionState extends State<HomeFilterSelection> {
       } else {
         _listSelectedFilter.add(filter);
       }
+
+      widget.onValueChanged?.call(_listSelectedFilter);
     });
   }
 
@@ -41,7 +36,7 @@ class _HomeFilterSelectionState extends State<HomeFilterSelection> {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          ..._listHomeFilterSelection.map((title) => _buildItem(context, title))
+          ...widget.listFilter.map((title) => _buildItem(context, title))
         ],
       ),
     );
@@ -56,25 +51,27 @@ class _HomeFilterSelectionState extends State<HomeFilterSelection> {
         padding: const EdgeInsets.only(right: 8),
         child: Container(
           height: 35,
-          width: 80,
+          constraints: const BoxConstraints(minWidth: 80),
           decoration: BoxDecoration(
             color: isSelected
                 ? (isDark ? Styles.itemColorBgDark : Styles.blackColor)
                 : (isDark ? Styles.blackColor : Styles.whiteColor),
             border: Border.all(
-              color:
-              isDark ? Styles.itemColorBgDark : Styles.itemColorBgLight,
+              color: isDark ? Styles.itemColorBgDark : Styles.itemColorBgLight,
             ),
             borderRadius: BorderRadius.circular(25),
           ),
           child: Center(
-              child: Text(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Text(
             title,
             style: TextStyle(
-                color: isSelected
-                    ? (isDark ? Styles.whiteColor : Styles.whiteColor)
-                    : (isDark ? Styles.whiteColor : Styles.blackColor)),
-          )),
+                  color: isSelected
+                      ? (isDark ? Styles.whiteColor : Styles.whiteColor)
+                      : (isDark ? Styles.whiteColor : Styles.blackColor)),
+          ),
+              )),
         ),
       ),
     );
