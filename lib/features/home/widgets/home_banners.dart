@@ -101,45 +101,6 @@ class _HomeBannersState extends State<HomeBanners> {
     });
   }
 
-  // Widget _buildBannerView() {
-  //   return Padding(
-  //     padding: const EdgeInsets.fromLTRB(30, 20, 20, 10),
-  //     child: Row(
-  //       children: [
-  //         Expanded(
-  //           flex: 6,
-  //           child: Column(
-  //             crossAxisAlignment: CrossAxisAlignment.start,
-  //             children: [
-  //               Text(
-  //                 _banners[_currentPage].discount,
-  //                 style: const TextStyle(
-  //                     fontSize: 32, fontWeight: FontWeight.bold),
-  //               ),
-  //               const SizedBox(height: 8),
-  //               Text(
-  //                 _banners[_currentPage].title,
-  //                 style: const TextStyle(
-  //                     fontSize: 18, fontWeight: FontWeight.bold),
-  //               ),
-  //               const SizedBox(height: 8),
-  //               Text(_banners[_currentPage].message),
-  //             ],
-  //           ),
-  //         ),
-  //         Expanded(
-  //           flex: 4,
-  //           child: Image.asset(
-  //             _banners[_currentPage].assetProductImage,
-  //             width: 180,
-  //             height: 180,
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
-
   List<Widget> _buildPageIndicator() {
     List<Widget> indicators = [];
     for (int i = 0; i < _banners.length; i++) {

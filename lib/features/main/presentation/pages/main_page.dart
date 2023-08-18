@@ -41,11 +41,10 @@ class _MainPageState extends State<MainPage> {
           },
           children: const [
             HomePage(),
-            ExamplePage(titlePage: 'Cart'),
-            ExamplePage(titlePage: 'Cart'),
-            ExamplePage(titlePage: 'Orders'),
-            ExamplePage(titlePage: 'Wallet'),
-            ExamplePage(titlePage: 'Profile'),
+            ExamplePage(titlePage: 'Cart', isNested: true),
+            ExamplePage(titlePage: 'Orders', isNested: true),
+            ExamplePage(titlePage: 'Wallet', isNested: true),
+            ExamplePage(titlePage: 'Profile', isNested: true),
           ],
         ),
       ),
@@ -61,8 +60,10 @@ class _MainPageState extends State<MainPage> {
         showUnselectedLabels: true,
         backgroundColor: bottomBarColor,
         elevation: 0,
-        selectedItemColor:  isDark ? Styles.iconActivatedDark : Styles.iconActivatedLight,
-        unselectedItemColor:  isDark ? Styles.iconDeactivatedDark : Styles.iconDeactivatedLight,
+        selectedItemColor:
+            isDark ? Styles.iconActivatedDark : Styles.iconActivatedLight,
+        unselectedItemColor:
+            isDark ? Styles.iconDeactivatedDark : Styles.iconDeactivatedLight,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: FaIcon(

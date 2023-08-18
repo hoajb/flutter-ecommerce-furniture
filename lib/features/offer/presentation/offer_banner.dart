@@ -10,32 +10,35 @@ class OfferBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(30, 20, 20, 10),
+      padding: const EdgeInsets.fromLTRB(30, 20, 20, 20),
       child: Row(
         children: [
           Expanded(
-            flex: 6,
+            flex: 65,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   item.discount,
                   style: const TextStyle(
-                      fontSize: 32, fontWeight: FontWeight.bold),
+                      fontSize: 28, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 8),
                 Text(
                   item.title,
                   style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 8),
-                Text(item.message),
+                Text(
+                  item.message,
+                  style: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.normal),
+                ),
               ],
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 35,
             child: Image.asset(
               item.assetProductImage,
               width: 180,

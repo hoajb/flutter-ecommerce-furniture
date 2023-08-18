@@ -105,7 +105,7 @@ class _ProductItemState extends State<ProductItem> {
         const SizedBox(height: 8),
         Text(
           widget.item['title'],
-          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         Row(
           children: [
@@ -138,7 +138,7 @@ class _ProductItemState extends State<ProductItem> {
         ),
         Text(
           '\$${widget.item['price']}',
-          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ],
     );

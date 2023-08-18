@@ -31,18 +31,19 @@ class _LoginPageState extends State<LoginPage> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
           children: [
             Image.asset(
               'assets/images/logo_furniture.jpeg',
               width: 180,
               height: 180,
             ),
-            const SizedBox(height: 20),
             const Text(
               'Login to Your Account',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
             TextFieldWithIcon(
               icon: Icons.email,
               hintText: 'Email',
@@ -83,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                 const Text('Remember me'),
               ],
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             ActionButton(
               matchParentWidth: true,
               onPressed: () {
@@ -91,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
               },
               text: 'Sign In',
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, AppRoutes.forgotPassword);
@@ -101,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(color: Colors.black),
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             const Text('--- or continue with ---'),
             const SizedBox(height: 20),
             Row(
@@ -139,8 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {}),
               ],
             ),
-            Expanded(
-                child: Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -164,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ))
               ],
-            ))
+            )
           ],
         ),
       ),

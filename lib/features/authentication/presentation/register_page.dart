@@ -21,18 +21,19 @@ class RegisterPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(
               'assets/images/logo_furniture.jpeg',
               width: 180,
               height: 180,
             ),
-            const SizedBox(height: 20),
             const Text(
               'Create Your Account',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
             TextFieldWithIcon(
               icon: Icons.email,
               hintText: 'Email',
@@ -62,7 +63,8 @@ class RegisterPage extends StatelessWidget {
               matchParentWidth: true,
               text: 'Sign Up',
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
+            const Spacer(),
             const Text('--- or continue with ---'),
             const SizedBox(height: 20),
             Row(
@@ -100,8 +102,7 @@ class RegisterPage extends StatelessWidget {
                     onPressed: () {}),
               ],
             ),
-            Expanded(
-                child: Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -124,7 +125,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                     ))
               ],
-            ))
+            )
           ],
         ),
       ),
