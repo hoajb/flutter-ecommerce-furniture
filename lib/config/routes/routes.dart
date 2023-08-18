@@ -7,6 +7,8 @@ import 'package:flutter_ecommerce_furniture/features/main/presentation/pages/mai
 import 'package:flutter_ecommerce_furniture/features/welcome/presentation/onboarding_page.dart';
 import 'package:flutter_ecommerce_furniture/features/welcome/presentation/welcome_page.dart';
 
+import '../../features/product_list/presentation/page/most_popular_page.dart';
+
 class AppRoutes {
   static const String welcome = '/';
   static const String onboarding = '/onboarding';
@@ -14,6 +16,7 @@ class AppRoutes {
   static const String login = '/login';
   static const String register = '/register';
   static const String forgotPassword = '/forgot_password';
+  static const String mostPopular = '/most_popular';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -29,6 +32,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => RegisterPage());
       case forgotPassword:
         return MaterialPageRoute(builder: (_) => ForgotPasswordPage());
+      case mostPopular:
+        return MaterialPageRoute(builder: (_) => const MostPopularPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

@@ -5,56 +5,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../config/theme/styles.dart';
 
 class ListAllPage extends StatelessWidget {
-  ListAllPage({Key? key}) : super(key: key);
+  final List<Map<String, dynamic>> items;
 
-  final List<Map<String, dynamic>> items = [
-    {
-      'image': 'assets/images/product-chair-4-removebg.png',
-      'title': 'Hammock Chair',
-      'starPoint': 4.4,
-      'sold': '2.7k sold',
-      'price': '\$169.95',
-    },
-    {
-      'image': 'assets/images/product-chair-1-removebg.png',
-      'title': 'Hammock Chair',
-      'starPoint': 4.2,
-      'sold': '2.7k sold',
-      'price': '\$129.95',
-    },
-    {
-      'image': 'assets/images/product-chair-2-removebg.png',
-      'title': 'Hammock Chair',
-      'starPoint': 4.1,
-      'sold': '2.7k sold',
-      'price': '\$69.00',
-    },
-    {
-      'image': 'assets/images/product-chair-1-removebg.png',
-      'title': 'Hammock Chair',
-      'starPoint': 4.0,
-      'sold': '2.7k sold',
-      'price': '\$69.95',
-    },
-    {
-      'image': 'assets/images/product-chair-4-removebg.png',
-      'title': 'Hammock Chair',
-      'starPoint': 4.4,
-      'sold': '2.7k sold',
-      'price': '\$99.95',
-    },
-    {
-      'image': 'assets/images/product-chair-4-removebg.png',
-      'title': 'Hammock Chair',
-      'starPoint': 4.4,
-      'sold': '2.7k sold',
-      'price': '\$210.50',
-    },
-  ];
+  const ListAllPage({Key? key, required this.items}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkModeEnabled;
     return GridView.builder(
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
@@ -67,69 +23,114 @@ class ListAllPage extends StatelessWidget {
       itemCount: items.length,
       // Number of items in the grid
       itemBuilder: (context, index) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color:
-                    isDark ? Styles.itemColorBgDark : Styles.itemColorBgLight,
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: Padding(
+        return ProductItem(
+          item: items[index],
+        );
+      },
+    );
+  }
+}
+
+class ProductItem extends StatefulWidget {
+  const ProductItem({super.key, required this.item});
+
+  final Map<String, dynamic> item;
+
+  @override
+  State<ProductItem> createState() => _ProductItemState();
+}
+
+class _ProductItemState extends State<ProductItem> {
+  bool _isFavorited = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = context.isDarkModeEnabled;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: isDark ? Styles.itemColorBgDark : Styles.itemColorBgLight,
+            borderRadius: BorderRadius.circular(16.0),
+          ),
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: Stack(
+              children: [
+                Padding(
                   padding: const EdgeInsets.all(16),
                   child: Image.asset(
-                    items[index]['image'],
+                    widget.item['image'],
                     fit: BoxFit.cover,
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              items[index]['title'],
-              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            Row(
-              children: [
-                const FaIcon(FontAwesomeIcons.starHalfStroke, size: 18),
-                Text(
-                  items[index]['starPoint'].toString(),
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(width: 8),
-                const Text(
-                  '|',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(width: 8),
-                Container(
-                    decoration: BoxDecoration(
-                      color: isDark
-                          ? Styles.itemColorBgDark
-                          : Styles.itemColorBgLight,
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    child: Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Text(
-                          items[index]['sold'],
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
-                        ))),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                      alignment: Alignment.topRight,
+                      child: CircleAvatar(
+                          radius: 16,
+                          backgroundColor: Colors.black,
+                          child: IconButton(
+                            icon: FaIcon(
+                              _isFavorited
+                                  ? FontAwesomeIcons.heartCircleCheck
+                                  : FontAwesomeIcons.heart,
+                              size: 18,
+                              color: Styles.whiteColor,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _isFavorited = !_isFavorited;
+                              });
+                            },
+                          ))),
+                )
               ],
             ),
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          widget.item['title'],
+          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+        Row(
+          children: [
+            const FaIcon(FontAwesomeIcons.starHalfStroke, size: 18),
             Text(
-              items[index]['price'],
-              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              widget.item['starPoint'].toString(),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(width: 8),
+            const Text(
+              '|',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(width: 8),
+            Container(
+                decoration: BoxDecoration(
+                  color:
+                      isDark ? Styles.itemColorBgDark : Styles.itemColorBgLight,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Text(
+                      widget.item['sold'],
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                          fontSize: 14, fontWeight: FontWeight.bold),
+                    ))),
           ],
-        );
-      },
+        ),
+        Text(
+          widget.item['price'],
+          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 }

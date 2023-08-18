@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_furniture/features/product_list/data/mock_product_list.dart';
 
+import '../../../config/routes/routes.dart';
 import '../../../core/wigets/header_profile.dart';
 import '../../product_list/presentation/page/list_all_page.dart';
 import '../widgets/home_banners.dart';
@@ -47,11 +49,13 @@ class _HomePageState extends State<HomePage> {
           HomeTitleRow(
             title: 'Most Popular',
             actionText: 'See All',
-            onActionPressed: () {},
+            onActionPressed: () {
+              Navigator.pushNamed(context, AppRoutes.mostPopular);
+            },
           ),
           const HomeFilterSelection(),
           const SizedBox(height: 16),
-          ListAllPage()
+          ListAllPage(items: recommendedProductList.sublist(0, 6))
         ]),
       ),
     );
