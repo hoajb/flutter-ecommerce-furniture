@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../config/theme/styles.dart';
 import '../../../home/presentation/home_page.dart';
+import '../../../profile/presentation/profile_page.dart';
 import 'example_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -44,7 +45,7 @@ class _MainPageState extends State<MainPage> {
             ExamplePage(titlePage: 'Cart', isNested: true),
             ExamplePage(titlePage: 'Orders', isNested: true),
             ExamplePage(titlePage: 'Wallet', isNested: true),
-            ExamplePage(titlePage: 'Profile', isNested: true),
+            ProfilePage(),
           ],
         ),
       ),

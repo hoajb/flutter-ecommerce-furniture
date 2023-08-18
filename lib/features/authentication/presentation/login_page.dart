@@ -88,7 +88,11 @@ class _LoginPageState extends State<LoginPage> {
             ActionButton(
               matchParentWidth: true,
               onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.main);
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRoutes.main,
+                  (Route<dynamic> route) => false,
+                );
               },
               text: 'Sign In',
             ),
