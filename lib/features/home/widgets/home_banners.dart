@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/core/ext/buildcontext_ext.dart';
 import 'package:flutter_ecommerce_furniture/features/home/data/banner_entity.dart';
 
+import '../../offer/presentation/offer_banner.dart';
+
 const _colorBgLight = Color(0xffe4e4e4);
 const _colorBgDark = Color(0xff36383e);
 
@@ -65,7 +67,9 @@ class _HomeBannersState extends State<HomeBanners> {
               },
               itemCount: _banners.length,
               itemBuilder: (context, index) {
-                return _buildBannerView();
+                return OfferBanner(
+                  item: _banners[_currentPage],
+                );
               },
             ),
             Container(
@@ -97,44 +101,44 @@ class _HomeBannersState extends State<HomeBanners> {
     });
   }
 
-  Widget _buildBannerView() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(30, 20, 20, 10),
-      child: Row(
-        children: [
-          Expanded(
-            flex: 6,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  _banners[_currentPage].discount,
-                  style: const TextStyle(
-                      fontSize: 32, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  _banners[_currentPage].title,
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(_banners[_currentPage].message),
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 4,
-            child: Image.asset(
-              _banners[_currentPage].assetProductImage,
-              width: 180,
-              height: 180,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildBannerView() {
+  //   return Padding(
+  //     padding: const EdgeInsets.fromLTRB(30, 20, 20, 10),
+  //     child: Row(
+  //       children: [
+  //         Expanded(
+  //           flex: 6,
+  //           child: Column(
+  //             crossAxisAlignment: CrossAxisAlignment.start,
+  //             children: [
+  //               Text(
+  //                 _banners[_currentPage].discount,
+  //                 style: const TextStyle(
+  //                     fontSize: 32, fontWeight: FontWeight.bold),
+  //               ),
+  //               const SizedBox(height: 8),
+  //               Text(
+  //                 _banners[_currentPage].title,
+  //                 style: const TextStyle(
+  //                     fontSize: 18, fontWeight: FontWeight.bold),
+  //               ),
+  //               const SizedBox(height: 8),
+  //               Text(_banners[_currentPage].message),
+  //             ],
+  //           ),
+  //         ),
+  //         Expanded(
+  //           flex: 4,
+  //           child: Image.asset(
+  //             _banners[_currentPage].assetProductImage,
+  //             width: 180,
+  //             height: 180,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   List<Widget> _buildPageIndicator() {
     List<Widget> indicators = [];

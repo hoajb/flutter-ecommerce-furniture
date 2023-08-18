@@ -33,9 +33,11 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 16),
           HomeTitleRow(
-            title: 'Special Offer',
+            title: 'Special Offers',
             actionText: 'See All',
-            onActionPressed: () {},
+            onActionPressed: () {
+              Navigator.pushNamed(context, AppRoutes.specialOffers);
+            },
           ),
           const HomeBanners(),
           const SizedBox(height: 16),
