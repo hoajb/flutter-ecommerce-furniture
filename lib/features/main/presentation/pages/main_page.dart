@@ -3,6 +3,7 @@ import 'package:flutter_ecommerce_furniture/core/ext/buildcontext_ext.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../config/theme/styles.dart';
+import '../../../cart/presentation/cart_page.dart';
 import '../../../home/presentation/home_page.dart';
 import '../../../profile/presentation/profile_page.dart';
 import 'example_page.dart';
@@ -42,7 +43,7 @@ class _MainPageState extends State<MainPage> {
           },
           children: const [
             HomePage(),
-            ExamplePage(titlePage: 'Cart', isNested: true),
+            CartPage(),
             ExamplePage(titlePage: 'Orders', isNested: true),
             ExamplePage(titlePage: 'Wallet', isNested: true),
             ProfilePage(),

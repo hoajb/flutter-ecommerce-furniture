@@ -6,9 +6,13 @@ import '../../../../core/utils/number_utils.dart';
 class CheckoutGroupButton extends StatelessWidget {
   final double price;
   final VoidCallback onPressed;
+  final String actionText;
 
   const CheckoutGroupButton(
-      {super.key, required this.price, required this.onPressed});
+      {super.key,
+      required this.price,
+      required this.onPressed,
+      required this.actionText});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +56,7 @@ class CheckoutGroupButton extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'Add to Cart',
+                  actionText,
                   style: TextStyle(color: textC, fontWeight: FontWeight.bold),
                 ),
               ],

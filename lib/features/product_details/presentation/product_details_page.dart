@@ -96,6 +96,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         onPressed: () {
                           //TODO goto checkout cart
                         },
+                        actionText: 'Add to Cart',
                       )
                     ],
                   ),
