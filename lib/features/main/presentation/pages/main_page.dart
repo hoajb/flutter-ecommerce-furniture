@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../config/theme/styles.dart';
 import '../../../cart/presentation/cart_page.dart';
 import '../../../home/presentation/home_page.dart';
+import '../../../order/presentation/order_page.dart';
 import '../../../profile/presentation/profile_page.dart';
 import 'example_page.dart';
 
@@ -41,12 +42,12 @@ class _MainPageState extends State<MainPage> {
               _currentIndex = index;
             });
           },
-          children: const [
-            HomePage(),
-            CartPage(),
-            ExamplePage(titlePage: 'Orders', isNested: true),
-            ExamplePage(titlePage: 'Wallet', isNested: true),
-            ProfilePage(),
+          children: [
+            const HomePage(),
+            const CartPage(),
+            OrderPage(),
+            const ExamplePage(titlePage: 'Wallet', isNested: true),
+            const ProfilePage(),
           ],
         ),
       ),

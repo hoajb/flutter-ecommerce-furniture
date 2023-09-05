@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
 import 'package:flutter_ecommerce_furniture/core/wigets/action_button.dart';
 
-import '../../../config/theme/theme_toggle_button.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});

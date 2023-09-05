@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
-import 'package:flutter_ecommerce_furniture/config/theme/styles.dart';
 import 'package:flutter_ecommerce_furniture/core/ext/buildcontext_ext.dart';
 import 'package:flutter_ecommerce_furniture/core/wigets/action_button.dart';
 import 'package:flutter_ecommerce_furniture/features/authentication/widgets/auth_button.dart';

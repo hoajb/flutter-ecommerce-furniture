@@ -100,6 +100,5 @@ class SpecialOfferItem extends StatelessWidget {
         child: OfferBanner(item: item),
       ),
     );
-    ;
   }
 }

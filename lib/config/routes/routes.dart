@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/features/authentication/presentation/forgot_password_page.dart';
 import 'package:flutter_ecommerce_furniture/features/authentication/presentation/login_page.dart';
 import 'package:flutter_ecommerce_furniture/features/authentication/presentation/register_page.dart';
-import 'package:flutter_ecommerce_furniture/features/home/presentation/home_page.dart';
 import 'package:flutter_ecommerce_furniture/features/main/presentation/pages/main_page.dart';
 import 'package:flutter_ecommerce_furniture/features/welcome/presentation/onboarding_page.dart';
 import 'package:flutter_ecommerce_furniture/features/welcome/presentation/welcome_page.dart';

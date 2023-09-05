@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/config/routes/routes.dart';
-import 'package:flutter_ecommerce_furniture/config/theme/app_themes.dart';
 import 'package:provider/provider.dart';
 
 import 'config/theme/styles.dart';

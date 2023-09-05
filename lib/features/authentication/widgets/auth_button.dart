@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_furniture/core/ext/buildcontext_ext.dart';
 
-import '../../../config/theme/styles.dart';
 
 const _height = 50.0;
 

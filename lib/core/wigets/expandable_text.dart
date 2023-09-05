@@ -38,7 +38,7 @@ class _DescriptionTextWidgetState extends State<DescriptionTextWidget> {
           ? Text(firstHalf)
           : Column(
               children: <Widget>[
-                Text(flag ? (firstHalf + "...") : (firstHalf + secondHalf)),
+                Text(flag ? ("$firstHalf...") : (firstHalf + secondHalf)),
                 InkWell(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
