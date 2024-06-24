@@ -50,7 +50,7 @@ class _HomeBannersState extends State<HomeBanners> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return SizedBox(
-      height: screenHeight * 1 / 6,
+      height: screenHeight * 1 / 5,
       child: Container(
         decoration: BoxDecoration(
           color: isDark ? _colorBgDark : _colorBgLight,

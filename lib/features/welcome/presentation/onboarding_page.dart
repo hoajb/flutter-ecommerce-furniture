@@ -61,7 +61,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: SizedBox(
-                height: screenHeight * 1 / 6,
+                height: screenHeight * 1 / 5,
                 child: Text(
                   _texts[_currentPage],
                   textAlign: TextAlign.center,

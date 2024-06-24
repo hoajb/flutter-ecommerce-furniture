@@ -22,7 +22,7 @@ class ListAllPage extends StatelessWidget {
           crossAxisCount: 2,
           crossAxisSpacing: 12.0,
           mainAxisSpacing: 12.0,
-          childAspectRatio: 2 / 3.3),
+          childAspectRatio: 2 / 3.6),
       itemCount: items.length,
       // Number of items in the grid
       itemBuilder: (context, index) {
